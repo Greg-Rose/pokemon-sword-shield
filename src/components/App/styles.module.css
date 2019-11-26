@@ -1,0 +1,17 @@
+.root {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin: 20px 0;
+}
+
+.headerImg {
+  margin-bottom: 20px;
+  width: 600px;
+}
+
+@media (max-width: 600px) {
+  .headerImg {
+    width: 280px;
+  }
+}

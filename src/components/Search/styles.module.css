@@ -1,0 +1,13 @@
+.root {
+  display: flex;
+  position: relative;
+}
+
+.clearButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  right: 0px;
+  top: 4px;
+}
