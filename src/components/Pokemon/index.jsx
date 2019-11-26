@@ -7,11 +7,15 @@ const text = {
   typeImgAlt: 'pokemon type'
 };
 
-const Pokemon = ({ abilities, image, name, type }) => (
+const Pokemon = ({ abilities, image, name, types }) => (
   <div className={styles.root}>
     <img src={image} alt={name} />
     <h2>{name}</h2>
-    <img className={styles.typeImage} src={type} alt={text.typeImgAlt} />
+    <div className={styles.typesContainer}>
+      {types.map(url => (
+        <img key={url} className={styles.typeImage} src={url} alt={text.typeImgAlt} />
+      ))}
+    </div>
     <div>{text.abilities}</div>
     <ul className={styles.abilities}>
       {abilities.map(ability => (
@@ -25,7 +29,7 @@ Pokemon.propTypes = {
   abilities: PropTypes.arrayOf(PropTypes.string).isRequired,
   image: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
-  type: PropTypes.string.isRequired
+  types: PropTypes.arrayOf(PropTypes.string).isRequired
 };
 
 export default Pokemon;

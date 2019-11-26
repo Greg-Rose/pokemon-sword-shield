@@ -4,6 +4,14 @@
   flex-direction: column;
 }
 
-.typeImage {
+.typesContainer {
   margin-bottom: 20px;
+}
+
+.typeImage {
+  margin-right: 5px;
+}
+
+.typeImage:last-of-type {
+  margin-right: 0;
 }
