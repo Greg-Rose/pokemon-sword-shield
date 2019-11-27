@@ -1,11 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import ReactTooltip from 'react-tooltip';
+import TypeTooltip from '../TypeTooltip';
 import styles from './styles.module.css';
 
 const text = {
   abilities: 'Abilities:',
+  tooltip: 'type-tooltip',
   typeImgAlt: 'pokemon type'
 };
+
+const typeFromUrl = url =>
+  url
+    .slice(40)
+    .replace('.gif', '')
+    .toLowerCase();
+
 
 const Pokemon = ({ abilities, image, name, types }) => (
   <div className={styles.root}>
@@ -13,7 +23,14 @@ const Pokemon = ({ abilities, image, name, types }) => (
     <h2>{name}</h2>
     <div className={styles.typesContainer}>
       {types.map(url => (
-        <img key={url} className={styles.typeImage} src={url} alt={text.typeImgAlt} />
+        <img
+          key={url}
+          className={styles.typeImage}
+          src={url}
+          alt={text.typeImgAlt}
+          data-for={text.tooltip}
+          data-tip={typeFromUrl(url)}
+        />
       ))}
     </div>
     <div>{text.abilities}</div>
@@ -22,6 +39,13 @@ const Pokemon = ({ abilities, image, name, types }) => (
         <li key={ability}>{ability}</li>
       ))}
     </ul>
+    <ReactTooltip
+      id={text.tooltip}
+      place="bottom"
+      effect="solid"
+      border
+      getContent={type => type && <TypeTooltip type={type} />}
+    />
   </div>
 );
 

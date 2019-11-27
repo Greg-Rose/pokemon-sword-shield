@@ -3020,3 +3020,96 @@ export const pokemonData = {
 };
 
 export const pokemonList = Object.keys(pokemonData);
+
+export const typesData = {
+  bug: {
+    name: 'Bug',
+    strongAgainst: ['Grass', 'Dark', 'Psychic'],
+    weakAgainst: ['Fire', 'Flying', 'Rock']
+  },
+  dark: {
+    name: 'Dark',
+    strongAgainst: ['Ghost', 'Psychic'],
+    weakAgainst: ['Bug', 'Fairy', 'Fighting']
+  },
+  dragon: {
+    name: 'Dragon',
+    strongAgainst: ['Dragon'],
+    weakAgainst: ['Dragon', 'Fairy', 'Ice']
+  },
+  electric: {
+    name: 'Electric',
+    strongAgainst: ['Flying', 'Water'],
+    weakAgainst: ['Ground']
+  },
+  fairy: {
+    name: 'Fairy',
+    strongAgainst: ['Fighting', 'Dark', 'Dragon'],
+    weakAgainst: ['Poison', 'Steel']
+  },
+  fighting: {
+    name: 'Fighting',
+    strongAgainst: ['Dark', 'Ice', 'Normal', 'Rock', 'Steel'],
+    weakAgainst: ['Fairy', 'Flying', 'Psychic']
+  },
+  fire: {
+    name: 'Fire',
+    strongAgainst: ['Bug', 'Grass', 'Ice', 'Steel'],
+    weakAgainst: ['Ground', 'Rock', 'Water']
+  },
+  flying: {
+    name: 'Flying',
+    strongAgainst: ['Bug', 'Fighting', 'Grass'],
+    weakAgainst: ['Electric', 'Ice', 'Rock']
+  },
+  ghost: {
+    name: 'Ghost',
+    strongAgainst: ['Ghost', 'Psychic'],
+    weakAgainst: ['Dark', 'Ghost']
+  },
+  grass: {
+    name: 'Grass',
+    strongAgainst: ['Ground', 'Rock', 'Water'],
+    weakAgainst: ['Bug', 'Fire', 'Flying', 'Ice', 'Poison']
+  },
+  ground: {
+    name: 'Ground',
+    strongAgainst: ['Electric', 'Fire', 'Poison', 'Rock', 'Steel'],
+    weakAgainst: ['Grass', 'Ice', 'Water']
+  },
+  ice: {
+    name: 'Ice',
+    strongAgainst: ['Dragon', 'Flying', 'Grass', 'Ground'],
+    weakAgainst: ['Fighting', 'Fire', 'Rock', 'Steel']
+  },
+  normal: {
+    name: 'Normal',
+    strongAgainst: ['-'],
+    weakAgainst: ['Fighting']
+  },
+  poison: {
+    name: 'Poison',
+    strongAgainst: ['Fairy', 'Grass'],
+    weakAgainst: ['Ground', 'Psychic']
+  },
+  psychic: {
+    name: 'Psychic',
+    strongAgainst: ['Fighting', 'Poison'],
+    weakAgainst: ['Bug', 'Dark', 'Ghost']
+  },
+  rock: {
+    name: 'Rock',
+    strongAgainst: ['Bug', 'Fire', 'Flying', 'Ice'],
+    weakAgainst: ['Fighting', 'Grass', 'Ground', 'Steel', 'Water']
+  },
+  steel: {
+    name: 'Steel',
+    strongAgainst: ['Fairy', 'Ice', 'Rock'],
+    weakAgainst: ['Fighting', 'Fire', 'Ground']
+  },
+  water: {
+    name: 'Water',
+    strongAgainst: ['Fire', 'Ground', 'Rock'],
+    weakAgainst: ['Electric', 'Grass']
+  }
+};

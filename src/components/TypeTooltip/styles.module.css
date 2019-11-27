@@ -1,0 +1,13 @@
+.table {
+  min-height: 100px;
+  text-align: center;
+  width: 275px;
+}
+
+.cell, .headerCell {
+  padding: 10px;;
+}
+
+.headerCell {
+  text-decoration: underline;
+}

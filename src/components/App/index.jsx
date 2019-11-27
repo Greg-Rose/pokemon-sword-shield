@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import ReactTooltip from 'react-tooltip';
 import Pokemon from '../Pokemon';
 import Search from '../Search';
 import { pokemonData } from '../../constants/values';
@@ -12,6 +13,10 @@ const text = {
 
 const App = () => {
   const [selectedPokemon, setSelectedPokemon] = useState(null);
+
+  useEffect(() => {
+    ReactTooltip.rebuild();
+  }, [selectedPokemon]);
 
   return (
     <div className={styles.root}>
