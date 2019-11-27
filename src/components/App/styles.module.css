@@ -6,12 +6,19 @@
 }
 
 .headerImg {
+  border-radius: 10px;
+  cursor: pointer;
   margin-bottom: 20px;
   width: 600px;
 }
 
 @media (max-width: 600px) {
+  .root {
+    margin-top: 0;
+  }
+
   .headerImg {
-    width: 280px;
+    border-radius: 0;
+    width: 100vw;
   }
 }

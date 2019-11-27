@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
+import React, { useEffect, useState } from 'react';
 import Autosuggest from 'react-autosuggest';
+import { Link, useLocation } from 'react-router-dom';
 import { pokemonList } from '../../constants/values';
 import styles from './styles.module.css';
 
@@ -17,23 +17,29 @@ const text = {
   placeholder: 'Type a Pokemon name'
 };
 
-const Search = ({ selectPokemon }) => {
+const Search = () => {  
   const [suggestions, updateSuggestions] = useState([]);
   const [value, updateValue] = useState('');
+  const location = useLocation();
 
   const clearValue = () => updateValue('');
   const onChange = (event, { newValue }) => updateValue(newValue);
   const onSuggestionsClearRequested = () => updateSuggestions([]);
   const onSuggestionsFetchRequested = ({ value }) =>
     updateSuggestions(getSuggestions(value));
-  const onSuggestionSelected = (event, { suggestionValue }) =>
-    selectPokemon(suggestionValue);
+  const renderSuggestion = suggestion => (
+    <Link className={styles.link} to={`/pokemon/${suggestion}`}>{suggestion}</Link>
+  );
 
   const inputProps = {
     onChange,
     placeholder: text.placeholder,
     value
   };
+
+   useEffect(() => {
+     if (location.pathname === '/') clearValue();
+   }, [location]);
 
   return (
     <div className={styles.root}>
@@ -42,23 +48,14 @@ const Search = ({ selectPokemon }) => {
         getSuggestionValue={value => value}
         onSuggestionsClearRequested={onSuggestionsClearRequested}
         onSuggestionsFetchRequested={onSuggestionsFetchRequested}
-        onSuggestionSelected={onSuggestionSelected}
-        renderSuggestion={suggestion => suggestion}
+        renderSuggestion={renderSuggestion}
         suggestions={suggestions}
       />
-      <button
-        className={styles.clearButton}
-        onClick={clearValue}
-        type="button"
-      >
+      <button className={styles.clearButton} onClick={clearValue} type="button">
         {text.clear}
       </button>
     </div>
   );
-};
-
-Search.propTypes = {
-  selectPokemon: PropTypes.func.isRequired
 };
 
 export default Search;

@@ -10,6 +10,7 @@
 
 .typeImage {
   margin-right: 5px;
+  width: 40px;
 }
 
 .typeImage:last-of-type {
